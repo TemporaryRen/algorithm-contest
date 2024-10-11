@@ -3,6 +3,23 @@ using namespace std;
 #define ll long long
 
 void solve(){
+    ll n,k;
+    cin>>n>>k;
+    ll ans = 0;
+    if(k==1){
+        cout<<n<<"\n";
+        return;
+    }
+    int top = 1;
+    while(n>=pow(k,top)) top++;
+    for(int i=top-1;i>0;i--){
+        int p = pow(k,i);
+        ans += n/p;
+        n = n%p;
+    }
+    ans += n;
+
+    cout<<ans<<"\n";
 }
 
 
